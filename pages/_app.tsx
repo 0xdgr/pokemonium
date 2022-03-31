@@ -11,7 +11,7 @@ import '../styles/globals.css';
 function PokemoniumApp({Component, pageProps}: AppProps) {
     return (
         <NextUIProvider theme={darkTheme}>
-            <MainLayout title={'Home - Pokémonium'}>
+            <MainLayout>
                 <Component {...pageProps} />
             </MainLayout>
         </NextUIProvider>
