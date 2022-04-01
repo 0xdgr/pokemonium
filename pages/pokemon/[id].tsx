@@ -5,6 +5,7 @@ import { getAllPokemonsIds } from '../../lib/pokemons';
 import { pokeApi } from '../../api';
 import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
 import { HeartIcon } from '../../components/ui/HeartIcon';
+import Head from 'next/head';
 
 
 interface PokemonProps {
@@ -13,56 +14,63 @@ interface PokemonProps {
 
 const PokemonPage: NextPage<PokemonProps> = ({pokemon}) => {
 
+    const capitalizedName = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
     return (
-        <Grid.Container css={{marginTop: '5px'}} gap={2}>
-            <Grid xs={12} sm={4}>
-                <Card hoverable css={{padding: '30px'}}>
-                    <Card.Body>
-                        <Image src={pokemon.sprites.other?.home.front_default || ''}
-                               alt={pokemon.name}
-                               width="100%"
-                               height={200}
-                        />
-                    </Card.Body>
-                </Card>
-            </Grid>
+        <>
+            <Head>
+                <title>{capitalizedName} - Pokémonium</title>
+            </Head>
+            <Grid.Container css={{marginTop: '5px'}} gap={2}>
+                <Grid xs={12} sm={4}>
+                    <Card hoverable css={{padding: '30px'}}>
+                        <Card.Body>
+                            <Image src={pokemon.sprites.other?.home.front_default || ''}
+                                   alt={pokemon.name}
+                                   width="100%"
+                                   height={200}
+                            />
+                        </Card.Body>
+                    </Card>
+                </Grid>
 
-            <Grid xs={12} sm={8}>
-                <Card>
-                    <Card.Header css={{display: 'flex', justifyContent: 'space-between'}}>
-                        <Text h1 transform="capitalize" css={{letterSpacing: '0.5px'}}>{pokemon.name}</Text>
+                <Grid xs={12} sm={8}>
+                    <Card>
+                        <Card.Header css={{display: 'flex', justifyContent: 'space-between'}}>
+                            <Text h1 transform="capitalize" css={{letterSpacing: '0.5px'}}>{pokemon.name}</Text>
 
-                        <Button auto color="error" icon={<HeartIcon filled={false}/>}>
-                        </Button>
-                    </Card.Header>
+                            <Button auto color="error" icon={<HeartIcon filled={false}/>}>
+                            </Button>
+                        </Card.Header>
 
-                    <Card.Body>
-                        <Text size={30}>Game Sprites</Text>
+                        <Card.Body>
+                            <Text size={30}>Game Sprites</Text>
 
-                        <Container display="flex">
+                            <Container display="flex">
 
-                            <Image src={pokemon.sprites.front_default}
-                                   alt="{pokemon.name} sprite front default"
-                                   width={100}
-                                   height={100}/>
-                            <Image src={pokemon.sprites.back_default}
-                                   alt="{pokemon.name} sprite back default"
-                                   width={100}
-                                   height={100}/>
-                            <Image src={pokemon.sprites.front_shiny}
-                                   alt="{pokemon.name} front shiny"
-                                   width={100}
-                                   height={100}/>
-                            <Image src={pokemon.sprites.back_shiny}
-                                   alt="{pokemon.name} sprite back shiny"
-                                   width={100}
-                                   height={100}/>
+                                <Image src={pokemon.sprites.front_default}
+                                       alt="{pokemon.name} sprite front default"
+                                       width={100}
+                                       height={100}/>
+                                <Image src={pokemon.sprites.back_default}
+                                       alt="{pokemon.name} sprite back default"
+                                       width={100}
+                                       height={100}/>
+                                <Image src={pokemon.sprites.front_shiny}
+                                       alt="{pokemon.name} front shiny"
+                                       width={100}
+                                       height={100}/>
+                                <Image src={pokemon.sprites.back_shiny}
+                                       alt="{pokemon.name} sprite back shiny"
+                                       width={100}
+                                       height={100}/>
 
-                        </Container>
-                    </Card.Body>
-                </Card>
-            </Grid>
-        </Grid.Container>
+                            </Container>
+                        </Card.Body>
+                    </Card>
+                </Grid>
+            </Grid.Container>
+        </>
     );
 }
 
