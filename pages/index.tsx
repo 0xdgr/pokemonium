@@ -13,15 +13,15 @@ interface Props {
 
 const Home: NextPage<Props> = ({pokemons}) => {
     return (
-        <section>
-            <Grid.Container gap={2} justify="flex-start">
-                {
-                    pokemons.map((poke) => (
-                        <PokeCard key={poke.id} pokemon={poke}/>
-                    ))
-                }
-            </Grid.Container>
-        </section>
+        <Grid.Container gap={2} justify="flex-start">
+            {/* todo: search bar */}
+
+            {
+                pokemons.map((poke) => (
+                    <PokeCard key={poke.id} pokemon={poke}/>
+                ))
+            }
+        </Grid.Container>
     );
 }
 
