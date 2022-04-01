@@ -1,10 +1,11 @@
 export const getAllPokemonsIds = () => {
-    return Array.from({length: 151}, (_, i) => i)
-        .map(i => {
-            return {
-                params: {
-                    id: String(i + 1)
-                }
-            };
-        });
+    const pokemons151 = Array.from({length: 151}, (_, i) => `${i + 1}`);
+
+    return pokemons151.map(id => {
+        return {
+            params: {
+                id
+            }
+        };
+    });
 };
