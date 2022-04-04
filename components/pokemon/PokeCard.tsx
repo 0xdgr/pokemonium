@@ -4,13 +4,15 @@ import { Card, Grid, Row, Text } from '@nextui-org/react';
 
 import { SmallPokemon } from '../../interfaces';
 import { useRouter } from 'next/router';
+import { SaveFavoriteButton } from '../ui';
 
 
 interface Props {
     pokemon: SmallPokemon;
+    withButton?: boolean;
 }
 
-export const PokeCard: FC<Props> = ({pokemon}) => {
+export const PokeCard: FC<Props> = ({pokemon, withButton = false}) => {
 
     const router = useRouter();
 
@@ -20,7 +22,14 @@ export const PokeCard: FC<Props> = ({pokemon}) => {
         <Grid xs={6} sm={3} md={2} xl={1}>
 
             <Card hoverable clickable
-            onClick={handleClick}>
+                  onClick={handleClick}>
+                {
+                    (withButton) ?
+                        <Card.Header css={{display: 'flex', justifyContent: 'flex-end'}}>
+                            <SaveFavoriteButton id={pokemon.id}/>
+                        </Card.Header>
+                        : ''
+                }
                 <Card.Body css={{p: 1}}>
                     <Card.Image src={pokemon.image} width="100%" height={140}/>
                 </Card.Body>

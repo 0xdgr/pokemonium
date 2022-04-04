@@ -42,7 +42,7 @@ const Favorites = () => {
 
                 {
                     favorites.map((poke) => (
-                        <PokeCard key={poke.id} pokemon={poke}/>
+                        <PokeCard key={poke.id} pokemon={poke} withButton/>
                     ))
                 }
             </Grid.Container>

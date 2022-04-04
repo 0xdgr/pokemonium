@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 
@@ -18,7 +18,8 @@ export const SaveFavoriteButton: FC<Props> = ({id}) => {
          setFilled(isFavorited(id));
     }, [id, filled]);
 
-    const onToggleFavorite = () => {
+    const onToggleFavorite = (e: React.MouseEvent<HTMLButtonElement>) => {
+        e.stopPropagation();
         toggleFavorite(id);
         setFilled(!filled);
     }
