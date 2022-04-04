@@ -3,9 +3,9 @@ import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { PokemonResponse } from '../../interfaces';
 import { getAllPokemonsIds } from '../../lib/pokemons';
 import { pokeApi } from '../../api';
-import { Button, Card, Container, Grid, Image, Text } from '@nextui-org/react';
-import { HeartIcon } from '../../components/ui/HeartIcon';
+import { Card, Container, Grid, Image, Text } from '@nextui-org/react';
 import Head from 'next/head';
+import { SaveFavoriteButton } from '../../components/ui/SaveFavoriteButton';
 
 
 interface PokemonProps {
@@ -39,8 +39,7 @@ const PokemonPage: NextPage<PokemonProps> = ({pokemon}) => {
                         <Card.Header css={{display: 'flex', justifyContent: 'space-between'}}>
                             <Text h1 transform="capitalize" css={{letterSpacing: '0.5px'}}>{pokemon.name}</Text>
 
-                            <Button auto color="error" icon={<HeartIcon filled={false}/>}>
-                            </Button>
+                            <SaveFavoriteButton id={pokemon.id}/>
                         </Card.Header>
 
                         <Card.Body>
