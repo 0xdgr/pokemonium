@@ -1,5 +1,6 @@
 import { Container, Image, Link, Text } from '@nextui-org/react';
 
+
 export const FavoritesEmpty = () => {
     return (
         <Container css={{
