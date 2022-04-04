@@ -1,11 +1,11 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 
 import { PokemonResponse } from '../../interfaces';
 import { getAllPokemonsIds } from '../../lib/pokemons';
 import { pokeApi } from '../../api';
 import { Card, Container, Grid, Image, Text } from '@nextui-org/react';
-import Head from 'next/head';
-import { SaveFavoriteButton } from '../../components/ui/SaveFavoriteButton';
+import { SaveFavoriteButton } from '../../components/ui';
 
 
 interface PokemonProps {

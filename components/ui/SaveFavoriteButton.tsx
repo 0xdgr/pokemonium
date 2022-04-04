@@ -2,9 +2,8 @@ import { FC, useEffect, useState } from 'react';
 
 import { Button } from '@nextui-org/react';
 
-import { HeartIcon } from './HeartIcon';
-import { toggleFavorite } from '../../lib/favorites';
-import { isFavorited } from '../../lib/favorites/favoritesStorage';
+import { HeartIcon } from '.';
+import { toggleFavorite, isFavorited } from '../../lib/favorites';
 
 
 interface Props {

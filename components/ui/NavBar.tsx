@@ -15,7 +15,7 @@ export const NavBar = () => {
             padding: '0 20px',
             alignItems: 'center',
             justifyContent: 'start',
-            backgroundColor: theme?.colors.gray100.value,
+            backgroundColor: theme?.colors.gray900.value,
         }}>
 
             <Link href="/">

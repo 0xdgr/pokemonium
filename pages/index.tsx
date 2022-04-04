@@ -4,7 +4,7 @@ import { Grid } from '@nextui-org/react';
 
 import { pokeApi } from '../api';
 import { PokemonListResponse, SmallPokemon } from '../interfaces';
-import { PokeCard } from '../pokemon';
+import { PokeCard } from '../components/pokemon';
 
 
 interface Props {

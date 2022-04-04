@@ -1,6 +1,9 @@
-import { Grid, Text } from '@nextui-org/react';
-import { SmallPokemon } from '../../interfaces';
 import Head from 'next/head';
+
+import { Grid, Text } from '@nextui-org/react';
+
+import { SmallPokemon } from '../../interfaces';
+import { FavoritesEmpty } from '../../components/ui';
 
 
 interface Props {
@@ -13,6 +16,8 @@ const Favorites = ({favorites}: Props) => {
             <Head>
                 <title>Your Favorite Pokémons - Pokémonium</title>
             </Head>
+
+            <FavoritesEmpty/>
 
             <Grid.Container gap={2} justify="flex-start">
                 <Grid xs={12}>

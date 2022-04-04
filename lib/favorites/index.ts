@@ -1,1 +1,1 @@
-export { toggleFavorite }  from './favoritesStorage';
+export { toggleFavorite, isFavorited }  from './favoritesStorage';
